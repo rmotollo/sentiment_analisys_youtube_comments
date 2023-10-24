@@ -1,12 +1,17 @@
 from nlp_features import translate_comments, sentiment_analysis
 from pre_process import clean_text
 from data_transformations import transform_data, write_to_csv
-import csv
 from youtube_functions import initialize_youtube_api, get_comments
+from dotenv import load_dotenv
+import os
+
+
 
 def main():
+    load_dotenv()
+
     # initialize youtube api
-    apikey = "AIzaSyD10RbJBeRqp4at6Nn7GkdI2T7xowL3xZU"
+    apikey = os.getenv("YOUTUBE_API_KEY")
 
     # get video id
     video_id = "khPhsLfUzUk"
